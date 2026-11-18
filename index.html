@@ -119,7 +119,7 @@ section{padding:70px 0}
 .ytf img{width:100%;height:100%;object-fit:cover;opacity:.85}
 .ytf span{position:absolute;inset:0;margin:auto;width:70px;height:70px;border-radius:50%;background:var(--or);display:grid;place-items:center;font-size:28px;color:var(--rouge-f)}
 .ytf iframe{width:100%;height:100%;border:0}
-.vid{width:100%;border-radius:14px;background:#000}
+.vid{width:100%;max-height:82vh;border-radius:14px;background:#000;object-fit:contain}
 .igf{display:grid;place-items:center;align-content:center;gap:10px;width:100%;min-height:240px;border:0;border-radius:14px;cursor:pointer;color:#fff;font:inherit;background:linear-gradient(135deg,var(--sapin),var(--rouge))}
 .igf strong{font-family:'Bricolage Grotesque',sans-serif;font-size:24px}
 .igf span{width:62px;height:62px;border-radius:50%;background:var(--or);display:grid;place-items:center;color:var(--rouge-f);font-size:24px}
@@ -246,7 +246,7 @@ footer a{color:var(--vanille)}
 
 <section id="videos" hidden>
 <div class="main-l">
-<div class="titre"><h2>En vidéo</h2><p>Deux vidéos tournées pour un magasin de l'île, publiées sur son compte Instagram (relectro_byravate).</p></div>
+<div class="titre"><h2>En vidéo</h2><p>Le Père Noël en action, à La Réunion.</p></div>
 <div class="videos" id="liste-videos"></div>
 </div>
 </section>
@@ -309,12 +309,12 @@ footer a{color:var(--vanille)}
 </script>
 <script>
 // Vidéos : 'ABCDEFGHIJK' = YouTube (façade au clic) ; 'mp4:video.mp4' = fichier hébergé sur le site
-var VIDEOS=['ig:DfpO2FrukWJ','ig:Dfj-UWqOA-0'];
+var VIDEOS=['mp4:pere-noel-974-video-1.mp4','mp4:pere-noel-974-video-2.mp4'];
 (function(){var sec=document.getElementById('videos'),liste=document.getElementById('liste-videos');
 if(!VIDEOS.length)return;sec.hidden=false;
 VIDEOS.forEach(function(id){
 if(id.indexOf('ig:')===0){var c=id.slice(3),g=document.createElement('button');g.className='igf';g.setAttribute('aria-label','Voir la vidéo');g.innerHTML='<strong>Voir la vidéo</strong><span>▶</span>';g.onclick=function(){g.className='igf ouvert';g.innerHTML='<iframe src="https://www.instagram.com/reel/'+c+'/embed" loading="lazy" allowfullscreen scrolling="no" title="Vidéo du Père Noël 974"></iframe>';};liste.appendChild(g);return;}
-if(id.indexOf('mp4:')===0){var v=document.createElement('video');v.className='vid';v.controls=true;v.preload='none';v.playsInline=true;v.src='videos/'+id.slice(4);liste.appendChild(v);return;}
+if(id.indexOf('mp4:')===0){var v=document.createElement('video');v.className='vid';v.controls=true;v.preload='none';v.playsInline=true;v.src='videos/'+id.slice(4);v.poster='videos/'+id.slice(4).replace('.mp4','.jpg');liste.appendChild(v);return;}
 var b=document.createElement('button');b.className='ytf';b.setAttribute('aria-label','Lire la vidéo');
 b.innerHTML='<img loading="lazy" src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" alt="Vidéo du Père Noël 974"><span>▶</span>';
 b.onclick=function(){b.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1" allow="autoplay;encrypted-media;picture-in-picture" allowfullscreen></iframe>';};
