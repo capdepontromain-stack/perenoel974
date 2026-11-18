@@ -58,9 +58,10 @@ section{padding:70px 0}
 .tuile div{position:relative;z-index:1;padding:20px}
 .tuile h3{font-size:25px}
 .tuile p{font-size:16px;opacity:.95;margin-top:4px}
-.t1{grid-column:span 7;min-height:340px}.t2{grid-column:span 5}.t3{grid-column:span 4}.t4{grid-column:span 4}.t5{grid-column:span 4}
+.t1{grid-column:span 7;min-height:340px}.t2{grid-column:span 5}.t3{grid-column:span 6}.t4{grid-column:span 6}
 .aplat{border-radius:14px;padding:24px;color:#fff;min-height:240px;display:flex;flex-direction:column;justify-content:flex-end}
 .aplat h3{font-size:25px}.aplat p{margin-top:6px;font-size:16px}
+.a-or{background:var(--or);color:var(--rouge-f)}
 .a-vert{background:var(--sapin)}.a-lagon{background:var(--lagon)}.a-rouge{background:var(--rouge-f)}
 
 /* pour qui */
